@@ -52,23 +52,20 @@ function Header() {
                 </LinkContainer>
                 <div className="dropdown-menu">
                 <LinkContainer to="/login">
-                  <Nav.Link  className="dropdown-item">
+                  <Nav.Link  className="dropdown-item" href="#">
                     Login
                   </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/signup">
-                  <Nav.Link  className="dropdown-item">
+                  <Nav.Link  className="dropdown-item" href="#">
                     Create Account
                   </Nav.Link>
                   </LinkContainer>
 
                   <div className="dropdown-divider"></div>
-                  <LinkContainer to="/logout">
-                  <Nav.Link  className="dropdown-item">
+                  <a className="dropdown-item" href="#">
                     Logout
-                  </Nav.Link>
-                  </LinkContainer>                  
-                  
+                  </a>
                 </div>
               </li>
             </ul>

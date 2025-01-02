@@ -29,9 +29,6 @@ function Header() {
                                 </Nav.Link>
                                 </LinkContainer>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">About</a>
-                            </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">New User</a>
                                 <div className="dropdown-menu">

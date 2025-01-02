@@ -9,7 +9,7 @@ function Header() {
       <Navbar className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div className="container-fluid">
           <LinkContainer to="/">
-            <Nav.Link className="navbar-brand">E-Commerce Cart </Nav.Link>
+            <Nav.Link className="navbar-brand">Ecommerce Cart </Nav.Link>
           </LinkContainer>
           <button
             className="navbar-toggler"
@@ -52,23 +52,20 @@ function Header() {
                 </LinkContainer>
                 <div className="dropdown-menu">
                 <LinkContainer to="/login">
-                  <Nav.Link  className="dropdown-item">
+                  <Nav.Link  className="dropdown-item" href="#">
                     Login
                   </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/signup">
-                  <Nav.Link  className="dropdown-item">
+                  <Nav.Link  className="dropdown-item" href="#">
                     Create Account
                   </Nav.Link>
                   </LinkContainer>
 
                   <div className="dropdown-divider"></div>
-                  <LinkContainer to="/logout">
-                  <Nav.Link  className="dropdown-item">
+                  <a className="dropdown-item" href="#">
                     Logout
-                  </Nav.Link>
-                  </LinkContainer>                  
-                  
+                  </a>
                 </div>
               </li>
             </ul>

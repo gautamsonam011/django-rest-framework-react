@@ -63,7 +63,7 @@ function Header() {
                   </LinkContainer>
 
                   <div className="dropdown-divider"></div>
-                  <LinkContainer to="/logout">
+                  <LinkContainer to="/signup">
                   <Nav.Link  className="dropdown-item">
                     Logout
                   </Nav.Link>
