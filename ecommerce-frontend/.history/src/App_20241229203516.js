@@ -8,9 +8,9 @@ function App() {
    <>
    <div>
     <Navbar/>
-    {/* <Container>
+    <Container>
     <h1>Welcom Django E-Commerce</h1>
-    </Container> */}
+    </Container>
     <Footer/>
    </div>
    </>
