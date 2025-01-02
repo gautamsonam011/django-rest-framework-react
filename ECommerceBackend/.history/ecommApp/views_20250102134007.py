@@ -9,6 +9,6 @@ from .products import products
 def getRoutes(request):
     return JsonResponse("Hello", safe=False)
 
-@api_view(['GET'])
+api_view(['GET'])
 def get_products(request):
     return Response(products)

@@ -14,16 +14,16 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route exact path="/" element={<Home/>}></Route>
+          <Route exact path="/" element={<Home />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/" element={<Login/>}></Route>
+          <Route exact path="/" element={<Login />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/" element={<Account/>}></Route>
+          <Route exact path="/" element={<Account />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/" element={<Cart/>}></Route>
+          <Route exact path="/" element={<Cart />}></Route>
         </Routes>
         <Footer />
       </Router>
