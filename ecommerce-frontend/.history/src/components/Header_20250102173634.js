@@ -1,10 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 function Header() {
   return (
     <>
+    <Router></Router>
       <Navbar className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div className="container-fluid">
           <LinkContainer to="/">

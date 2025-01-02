@@ -1,6 +1,7 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import React from "react";
+import { LinkContainer } from "react-router-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
+
 
 function Header() {
   return (
@@ -25,49 +26,41 @@ function Header() {
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <LinkContainer to="/">
-                  <Nav.Link className="navbar-link active">Home <i className="fa-solid fa-house"></i></Nav.Link>
+                  <Nav.Link className="navbar-link active">
+                    Home <i className="fa-solid fa-house"></i>
+                  </Nav.Link>
                 </LinkContainer>
-               
               </li>
               <li className="nav-item">
                 <LinkContainer to="/cart">
-                <Nav.Link className="nav-link">
-                  Cart
-                </Nav.Link>
+                  <Nav.Link className="nav-link">Cart</Nav.Link>
                 </LinkContainer>
               </li>
 
               <li className="nav-item dropdown">
-              <LinkContainer to="/signup">
-                <Nav.Link  className="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-              
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  New User?
-                </Nav.Link>
+                <LinkContainer to="/signup">
+                  <Nav.Link
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    New User?
+                  </Nav.Link>
                 </LinkContainer>
                 <div className="dropdown-menu">
-                <LinkContainer to="/login">
-                  <Nav.Link  className="dropdown-item">
-                    Login
-                  </Nav.Link>
+                  <LinkContainer to="/login">
+                    <Nav.Link className="dropdown-item">Login</Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/signup">
-                  <Nav.Link  className="dropdown-item">
-                    Create Account
-                  </Nav.Link>
+                    <Nav.Link className="dropdown-item">Create Account</Nav.Link>
                   </LinkContainer>
 
                   <div className="dropdown-divider"></div>
                   <LinkContainer to="/logout">
-                  <Nav.Link  className="dropdown-item">
-                    Logout
-                  </Nav.Link>
-                  </LinkContainer>                  
-                  
+                    <Nav.Link className="dropdown-item">Logout</Nav.Link>
+                  </LinkContainer>
                 </div>
               </li>
             </ul>

@@ -1,11 +1,11 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import React from "react";
+import { LinkContainer } from "react-router-bootstrap";
+import { Nav } from "react-bootstrap";
 
-function Header() {
+function Navbar() {
   return (
     <>
-      <Navbar className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div className="container-fluid">
           <LinkContainer to="/">
             <Nav.Link className="navbar-brand">E-Commerce Cart </Nav.Link>
@@ -83,9 +83,9 @@ function Header() {
             </form>
           </div>
         </div>
-      </Navbar>
+      </nav>
     </>
   );
 }
 
-export default Header;
+export default Navbar;
