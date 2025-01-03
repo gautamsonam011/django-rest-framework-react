@@ -43,6 +43,7 @@ function Home() {
             className="my-3 p-3 rounded" 
             style={{ backgroundImage: `url(${view.image})`, backgroundSize: 'cover', height: '200px' }}>
           </Card>
+
             <h3>{view.productname}</h3>
             <h6>{view.productbrand}</h6>
             <h6>{view.productcategory}</h6>

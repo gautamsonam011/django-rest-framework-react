@@ -37,12 +37,20 @@ function Home() {
         ))}
       </Row>
       <Row>
+        {products.map((product) => (
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+            <h3>{product.productname}</h3>
+            <h6>{product.category}</h6>
+            <h6>{product.price}</h6>
+          </Col>
+        ))}
+      </Row>
+      {/* <Row>
         {productview.map((view) => (
           <Col key={view._id} sm={12} md={6} lg={4} xl={3}>
-            <Card 
-            className="my-3 p-3 rounded" 
-            style={{ backgroundImage: `url(${view.image})`, backgroundSize: 'cover', height: '200px' }}>
-          </Card>
+            <Card className="my-3 p-3 rounded">
+            <img src="{view.image}" alt="/" />
+            </Card>
             <h3>{view.productname}</h3>
             <h6>{view.productbrand}</h6>
             <h6>{view.productcategory}</h6>
@@ -54,7 +62,7 @@ function Home() {
             <h6>{view.user}</h6>
           </Col>
         ))}
-      </Row>
+      </Row> */}
     </Container>
   )
 }

@@ -13,7 +13,9 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def get_products(request):
-    return Response(products)
+    products = Products.objects.all()
+    serializer = ProductsSerializer(products, many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def get_all_products(request):

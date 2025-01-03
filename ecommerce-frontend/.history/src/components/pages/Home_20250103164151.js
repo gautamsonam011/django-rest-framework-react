@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Card} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 function Home() {
   const [products, setProducts] = useState([]);
   const [productview, setProductView] = useState([]);
-  
 
 
   useEffect(() => {
@@ -15,8 +14,8 @@ function Home() {
     };
 
     async function fetchproductsview() {
-      const { data } = await axios.get('/api/view-products/');
-      setProductView(data);
+      const { data_view } = await axios.get('/api/view-products/');
+      setProductView(data_view);
     };
 
     fetchproducts();
@@ -39,10 +38,6 @@ function Home() {
       <Row>
         {productview.map((view) => (
           <Col key={view._id} sm={12} md={6} lg={4} xl={3}>
-            <Card 
-            className="my-3 p-3 rounded" 
-            style={{ backgroundImage: `url(${view.image})`, backgroundSize: 'cover', height: '200px' }}>
-          </Card>
             <h3>{view.productname}</h3>
             <h6>{view.productbrand}</h6>
             <h6>{view.productcategory}</h6>

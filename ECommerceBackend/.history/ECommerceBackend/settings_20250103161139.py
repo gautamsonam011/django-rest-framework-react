@@ -1,5 +1,5 @@
 from pathlib import Path
-import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -110,11 +110,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/images/'
+MEDIA_URL = '/images'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR /'static'
+]
 
 MEDIA_ROOT = 'static/images'
 
