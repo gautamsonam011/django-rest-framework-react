@@ -11,7 +11,7 @@ function Header() {
         <img
             src={logo}
             alt="E-Commerce Logo"
-            style={{ width: '20px', height: 'auto', marginLeft: '10px', marginRight: '10px' }} 
+            style={{ width: '20px', height: 'auto', marginLeft: 10px }} 
           />
 
           E-Commerce Cart

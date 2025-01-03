@@ -1,19 +1,13 @@
+// Header.js
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import logo from '../logo.png';
 
 function Header() {
   return (
     <Navbar className="navbar navbar-expand-lg bg-info" data-bs-theme="info">
       <div className="container-fluid">
         <NavLink to="/" className="navbar-brand navbar-link text-white">
-        <img
-            src={logo}
-            alt="E-Commerce Logo"
-            style={{ width: '20px', height: 'auto', marginLeft: '10px', marginRight: '10px' }} 
-          />
-
           E-Commerce Cart
         </NavLink>
         <button
@@ -29,17 +23,17 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarColor02">
           <ul className="navbar-nav me-auto">
-            <li className="nav-item me-3" >
+            <li className="nav-item " >
               <NavLink to="/" className="navbar-link text-white" activeClassName="active">
                 Home <i className="fa-solid fa-house"></i>
               </NavLink>
             </li>
-            <li className="nav-item me-3">
+            <li className="nav-item">
               <NavLink to="/cart" className="navbar-link text-white" activeClassName="active">
               Cart <i className="fa-solid fa-cart-shopping"></i>
               </NavLink>
             </li>
-            <li className="nav-item dropdown me-3">
+            <li className="nav-item dropdown">
               <NavLink
                 to="/signup"
                 className="navbar-link dropdown-toggle text-white"

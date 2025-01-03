@@ -1,15 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { Container } from 'react-bootstrap';
-import axios from 'axios';
 
 function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
-    async function fetchproducts() {
-      const data = await axios.get('/api/products/')
-    }
-    fetchproducts();
+    console.log(1);
   })
   return (
     <Container>

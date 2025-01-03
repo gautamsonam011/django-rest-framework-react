@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import logo from '../logo.png';
+import logo from '../logo.png;
 
 function Header() {
   return (
@@ -11,7 +11,7 @@ function Header() {
         <img
             src={logo}
             alt="E-Commerce Logo"
-            style={{ width: '20px', height: 'auto', marginLeft: '10px', marginRight: '10px' }} 
+            style={{ width: '150px', height: 'auto' }} 
           />
 
           E-Commerce Cart

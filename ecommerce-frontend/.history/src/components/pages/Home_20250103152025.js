@@ -7,9 +7,8 @@ function Home() {
 
   useEffect(()=>{
     async function fetchproducts() {
-      const data = await axios.get('/api/products/')
+      const data = await axios.get('http://127.0.0.1:8000/api/products/')
     }
-    fetchproducts();
   })
   return (
     <Container>

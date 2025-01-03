@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
@@ -9,12 +10,12 @@ import Account from './components/pages/Account';
 import Cart from './components/pages/Cart';
 
 // Protected route for authentication
-function ProtectedRoute({ variable_code }) {
+function ProtectedRoute({ children }) {
   const isAuthenticated = false; // Replace this with actual auth logic
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
-  return variable_code;
+  return children;
 }
 
 export default function App() {
