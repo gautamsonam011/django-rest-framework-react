@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import { LinkContainer } from 'react-router-bootstrap'; // Use LinkContainer for Bootstrap integration
 
 function Header() {

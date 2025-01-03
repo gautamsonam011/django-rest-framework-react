@@ -2,7 +2,7 @@ import React from "react";
 // import { Container } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import {BrowserRouter,Routes,Route, Navigate} from 'react-router-dom'
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Account from "./components/pages/Account";
