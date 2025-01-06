@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import axios from 'axios';
 import Product from './Product';
-import { ProductsList } from '../../actions/productActions';
+import { ProductsList} from '../../actions/productActions';
 import { useDispatch, useSelector } from 'react-redux';
-import Message from "../pages/Message";
-import Loader from "../pages/Loader";
 
 function Home() {
-  // const [products, setProducts] = useState([]);
-  const dispatch = useDispatch()
-  const listProducts = useSelector((state) => state.listProducts);
-  const { error, loading, productview} = listProducts
-
-
-  useEffect(() => {
-    dispatch(ProductsList())
-  }, [dispatch]);
+  const [products, setProducts] = useState([]);
+  const dispatch=useDispatch()
+  const productsList = useSelector((state)=>state.productsList);
+  const {error,loading,productview}=ProductsList
   
+  useEffect(() => {
+  dispatch(ProductsList())
+  }, [dispatch]);
+
+
+
   // useEffect(() => {
   //   async function fetchproducts() {
   //     const { data } = await axios.get('/api/products/');
@@ -33,8 +32,7 @@ function Home() {
   //   fetchproducts();
   //   fetchproductsview();
   // }, [])
-
-  const safeProductView = Array.isArray(productview) ? productview : [];
+  
 
   return (
     <Container className='text-white'>
@@ -68,24 +66,24 @@ function Home() {
           </Col>
         ))}
       </Row> */}
-      {loading ? (
-        <Loader /> // Show loader while data is loading
-      ) : error ? (
-        <Message variant="danger">{error}</Message> // Show error message if any
-      ) : (
-        <Row>
-          {safeProductView.length > 0 ? (
-            safeProductView.map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product={product} />
-              </Col>
-            ))
-          ) : (
-            <h3>No products available</h3> // Show message if no products available
-          )}
-        </Row>
-      )}
+      {
+        loading ? (
+          <h2>Loading..........</h2>
+        ) : error ? (
+          <h3>{error}</h3>
+        ) : (
+          <Row>
+        {productview.map((product) => (
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
 
+            <Product product={product} />
+            
+
+          </Col>
+        ))}
+      </Row>
+        )
+      }
     </Container>
   )
 }

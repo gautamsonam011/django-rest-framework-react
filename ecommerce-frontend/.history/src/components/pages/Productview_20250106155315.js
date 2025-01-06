@@ -5,8 +5,6 @@ import { Row, Col, Image, ListGroup, Button, Card, Container } from 'react-boots
 import Rating from './Rating';
 import { ProductsListDetails } from '../../actions/productActions';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from './Loader';
-import Message from './Message';
 
 function Productview({ params }) {
     const { id } = useParams();
@@ -37,9 +35,9 @@ function Productview({ params }) {
                         Go Back
                     </Link>
                     {loading ? (
-                        <Loader/>
+                        <h1>loading.......</h1>
                     ) : error ? (
-                        <Message variant='danger'>{ error }</Message>
+                        { error }
                     ) : (
                         <Row>
                             <Col md={4}>

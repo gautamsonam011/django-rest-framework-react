@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import axios from 'axios';
 import Product from './Product';
-import { ProductsList } from '../../actions/productActions';
+import { ProductsList} from '../../actions/productActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from "../pages/Message";
 import Loader from "../pages/Loader";
 
 function Home() {
-  // const [products, setProducts] = useState([]);
-  const dispatch = useDispatch()
-  const listProducts = useSelector((state) => state.listProducts);
-  const { error, loading, productview} = listProducts
-
-
-  useEffect(() => {
-    dispatch(ProductsList())
-  }, [dispatch]);
+  const [products, setProducts] = useState([]);
+  const dispatch=useDispatch()
+  const { error, loading, productview } = useSelector((state) => state.productsList || {});
   
+  
+  useEffect(() => {
+  dispatch(ProductsList())
+  }, [dispatch]);
+
+  console.log(productview)
+
   // useEffect(() => {
   //   async function fetchproducts() {
   //     const { data } = await axios.get('/api/products/');
@@ -33,7 +34,7 @@ function Home() {
   //   fetchproducts();
   //   fetchproductsview();
   // }, [])
-
+  
   const safeProductView = Array.isArray(productview) ? productview : [];
 
   return (
@@ -68,7 +69,7 @@ function Home() {
           </Col>
         ))}
       </Row> */}
-      {loading ? (
+{loading ? (
         <Loader /> // Show loader while data is loading
       ) : error ? (
         <Message variant="danger">{error}</Message> // Show error message if any

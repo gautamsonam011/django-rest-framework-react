@@ -39,7 +39,7 @@ function Productview({ params }) {
                     {loading ? (
                         <Loader/>
                     ) : error ? (
-                        <Message variant='danger'>{ error }</Message>
+                        <Message>{ error }</Message>
                     ) : (
                         <Row>
                             <Col md={4}>

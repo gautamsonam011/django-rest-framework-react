@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import axios from 'axios';
 import Product from './Product';
 import { ProductsList } from '../../actions/productActions';
@@ -8,16 +8,18 @@ import Message from "../pages/Message";
 import Loader from "../pages/Loader";
 
 function Home() {
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const dispatch = useDispatch()
-  const listProducts = useSelector((state) => state.listProducts);
-  const { error, loading, productview} = listProducts
+  const [productview, setproductview] = useSelector((state) => state.productsList || {});
+  const { error, loading } = useSelector((state) => state.productsList || {});
 
 
   useEffect(() => {
     dispatch(ProductsList())
   }, [dispatch]);
-  
+
+  console.log(productview)
+
   // useEffect(() => {
   //   async function fetchproducts() {
   //     const { data } = await axios.get('/api/products/');

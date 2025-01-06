@@ -10,14 +10,16 @@ import Loader from "../pages/Loader";
 function Home() {
   // const [products, setProducts] = useState([]);
   const dispatch = useDispatch()
-  const listProducts = useSelector((state) => state.listProducts);
-  const { error, loading, productview} = listProducts
+  const productList = useSelector((state) => state.productList);
+  const { error, loading, productview} = productList
 
 
   useEffect(() => {
     dispatch(ProductsList())
   }, [dispatch]);
-  
+
+  console.log(productview)
+
   // useEffect(() => {
   //   async function fetchproducts() {
   //     const { data } = await axios.get('/api/products/');

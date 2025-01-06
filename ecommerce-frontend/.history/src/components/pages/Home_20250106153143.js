@@ -17,7 +17,9 @@ function Home() {
   useEffect(() => {
     dispatch(ProductsList())
   }, [dispatch]);
-  
+
+  console.log(productview)
+
   // useEffect(() => {
   //   async function fetchproducts() {
   //     const { data } = await axios.get('/api/products/');
