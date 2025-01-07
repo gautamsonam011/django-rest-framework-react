@@ -25,7 +25,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
         return name
 
-    def get__id(self, obj):
+    def get_id(self, obj):
         return obj.id 
 
     def get_isAdmin(self, obj):

@@ -27,6 +27,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         serializer = ProfileSerializerWithToken(self.user).data
         for k, v in serializer.items():
             data[k] = v
+
         return data        
 
 class MyTokenObtainPairView(TokenObtainPairView):

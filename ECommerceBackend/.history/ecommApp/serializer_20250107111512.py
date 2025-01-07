@@ -25,14 +25,13 @@ class ProfileSerializer(serializers.ModelSerializer):
 
         return name
 
-    def get__id(self, obj):
+    def get_id(self, obj):
         return obj.id 
 
     def get_isAdmin(self, obj):
         return obj.is_staff        
 
 class ProfileSerializerWithToken(serializers.ModelSerializer):
-    token = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = User
         fields = ['id', '_id', 'username', 'email', 'name', 'isAdmin', 'token']

@@ -1,0 +1,19 @@
+from rest_framework import serializers
+from .models import Products
+from django.contrib.auth.models import User
+
+class ProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Products
+        fields = '__all__'
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']    
+
+class ProfileSerializerWithToken(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
+        

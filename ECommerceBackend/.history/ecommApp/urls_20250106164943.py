@@ -7,7 +7,7 @@ urlpatterns = [
     path('products/', views.get_products, name='products'),
     path('view-products/', views.get_all_products, name='view-products'),
     path('product/<str:pk>', views.get_product, name='product'),
-    path('users/login/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('users/profile/', views.get_user_profiles, name="profiles")
+    path('users/login/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('users/profiles/', views.get_user_profiles, name="profiles")
    
 ]
