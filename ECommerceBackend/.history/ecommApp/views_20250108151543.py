@@ -56,23 +56,15 @@ class ActivateAccountView(View):
         if user is not None and generate_token.check_token(user, token):
             user.is_active = True
             user.save()
-            return Response(request, "activateSuccess.html")
-        
-        else:
-            return render(request, "activateFail.html")
+            message = {"details":"Account is Activates"}
+            return Response(message, status=status.HTTP_200_OK)
 
 # ------------ User Registration ------   
 @api_view(['POST'])
 def register_user(request):
     data=request.data
     try:
-        user= User.objects.create(
-            first_name=data['fname'], 
-            last_name=data['lname'], 
-            username=data['email'], 
-            email=data['email'],
-            password=make_password(data['password']),
-            is_active=False)
+        user= User.objects.create(first_name=data['fname'],last_name=data['lname'],username=data['email'],email=data['email'],password=make_password(data['password']),is_active=False)
       
         # generate token for sending mail
         email_subject="Activate Your Account"
@@ -86,7 +78,7 @@ def register_user(request):
            }
 
         )
-        print(user)
+        # print(message)
         email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[data['email']])
         email_message.send()
         serialize=UserSerializerWithToken(user,many=False)

@@ -66,13 +66,7 @@ class ActivateAccountView(View):
 def register_user(request):
     data=request.data
     try:
-        user= User.objects.create(
-            first_name=data['fname'], 
-            last_name=data['lname'], 
-            username=data['email'], 
-            email=data['email'],
-            password=make_password(data['password']),
-            is_active=False)
+        user= User.objects.create(first_name=data['fname'],last_name=data['lname'],username=data['email'],email=data['email'],password=make_password(data['password']),is_active=False)
       
         # generate token for sending mail
         email_subject="Activate Your Account"
@@ -86,7 +80,7 @@ def register_user(request):
            }
 
         )
-        print(user)
+        # print(message)
         email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[data['email']])
         email_message.send()
         serialize=UserSerializerWithToken(user,many=False)

@@ -86,7 +86,7 @@ def register_user(request):
            }
 
         )
-        print(user)
+        print(message)
         email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[data['email']])
         email_message.send()
         serialize=UserSerializerWithToken(user,many=False)

@@ -19,6 +19,7 @@ from .utils import TokenGenerator, generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+import logging
 from django.views.generic import View
 
 # Create your views here.
@@ -56,45 +57,45 @@ class ActivateAccountView(View):
         if user is not None and generate_token.check_token(user, token):
             user.is_active = True
             user.save()
-            return Response(request, "activateSuccess.html")
-        
-        else:
-            return render(request, "activateFail.html")
+            message = {"details":"Account is Activates"}
+            return Response(message, status=status.HTTP_200_OK)
 
 # ------------ User Registration ------   
+logger = logging.getLogger(__name__)
+
 @api_view(['POST'])
 def register_user(request):
-    data=request.data
+    data = request.data
+    logger.info("Received request data: %s", data)  # Log request data
+    
     try:
-        user= User.objects.create(
-            first_name=data['fname'], 
-            last_name=data['lname'], 
-            username=data['email'], 
+        user = User.objects.create(
+            first_name=data['fname'],
+            last_name=data['lname'],
+            username=data['email'],
             email=data['email'],
             password=make_password(data['password']),
-            is_active=False)
-      
-        # generate token for sending mail
-        email_subject="Activate Your Account"
-        message=render_to_string(
-            "activate.html",
-           {
-            'user':user,
-            'domain':'127.0.0.1:8000',
-            'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-            'token':generate_token.make_token(user)
-           }
-
+            is_active=False
         )
-        print(user)
-        email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[data['email']])
-        email_message.send()
-        serialize=UserSerializerWithToken(user,many=False)
+
+        # generate token for sending mail
+        email_subject = "Activate Your Account"
+        message = render_to_string(
+            "activate.html",
+            {
+                'user': user,
+                'domain': '127.0.0.1:8000/',
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': generate_token.make_token(user)
+            }
+        )
+        serialize = UserSerializerWithToken(user, many=False)
         return Response(serialize.data)
+
     except Exception as e:
-        message={'details':e}
-        print(e)
-        return Response(message,status=status.HTTP_400_BAD_REQUEST)
+        logger.error("Error during registration: %s", e) 
+        message = {'details': str(e)}
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
 

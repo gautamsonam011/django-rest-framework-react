@@ -65,36 +65,37 @@ class ActivateAccountView(View):
 @api_view(['POST'])
 def register_user(request):
     data=request.data
-    try:
-        user= User.objects.create(
-            first_name=data['fname'], 
-            last_name=data['lname'], 
-            username=data['email'], 
-            email=data['email'],
-            password=make_password(data['password']),
-            is_active=False)
-      
-        # generate token for sending mail
-        email_subject="Activate Your Account"
-        message=render_to_string(
-            "activate.html",
-           {
-            'user':user,
-            'domain':'127.0.0.1:8000',
-            'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-            'token':generate_token.make_token(user)
-           }
+    # try:
+    user= User.objects.create(
+        first_name=data['fname'], 
+        last_name=data['lname'], 
+        username=data['email'], 
+        email=data['email'],
+        password=make_password(data['password']),
+        is_active=False)
+    
+    # generate token for sending mail
+    email_subject="Activate Your Account"
+    message=render_to_string(
+        "activate.html",
+        {
+        'user':user,
+        'domain':'127.0.0.1:8000',
+        'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+        'token':generate_token.make_token(user)
+        }
 
-        )
-        print(user)
-        email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[data['email']])
-        email_message.send()
-        serialize=UserSerializerWithToken(user,many=False)
-        return Response(serialize.data)
-    except Exception as e:
-        message={'details':e}
-        print(e)
-        return Response(message,status=status.HTTP_400_BAD_REQUEST)
+    )
+    print(user)
+    email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[data['email']])
+    email_message.send()
+    serialize=UserSerializerWithToken(user,many=False)
+    return Response(serialize.data)
+    # except Exception as e:
+    #     pass
+    #     message={'details':e}
+    #     print(e)
+    #     return Response(message,status=status.HTTP_400_BAD_REQUEST)
 
 
 

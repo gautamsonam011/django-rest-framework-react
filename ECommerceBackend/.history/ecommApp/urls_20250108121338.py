@@ -11,6 +11,5 @@ urlpatterns = [
     path('users/register/', views.register_user, name='register'),
     path('users/login/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('users/profile/', views.get_user_profiles, name="profiles"),
-    path('activate/<uidb64>/<token>/', views.ActivateAccountView.as_view(), name='activate'),
    
 ]

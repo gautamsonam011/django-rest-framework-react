@@ -92,9 +92,10 @@ def register_user(request):
         serialize=UserSerializerWithToken(user,many=False)
         return Response(serialize.data)
     except Exception as e:
-        message={'details':e}
-        print(e)
-        return Response(message,status=status.HTTP_400_BAD_REQUEST)
+        pass
+    #     message={'details':e}
+    #     print(e)
+    #     return Response(message,status=status.HTTP_400_BAD_REQUEST)
 
 
 
