@@ -66,6 +66,7 @@ class ActivateAccountView(View):
 def register_user(request):
     data=request.data
     try:
+        print(data)
         if User.objects.filter(email=data['email']).exists():
             return Response({"detail": "User already exists"}, status=status.HTTP_400_BAD_REQUEST)
         
